@@ -26,11 +26,12 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    RSSTableViewController *tvc = [[RSSTableViewController alloc] 
-                                   initWithStyle:UITableViewStylePlain]; 
-    [self.window addSubview:[tvc view]];
+    RSSTableViewController *tablaCanciones = [[RSSTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tablaCanciones];
     
+    [self.window addSubview:[navController view]];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
