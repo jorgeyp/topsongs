@@ -15,6 +15,7 @@
 		22E55CB1162591F7005ABD66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CB0162591F7005ABD66 /* AppDelegate.m */; };
 		22E55CB4162591F7005ABD66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CB3162591F7005ABD66 /* ViewController.m */; };
 		22E55CB7162591F7005ABD66 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E55CB5162591F7005ABD66 /* ViewController.xib */; };
+		22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CBE1625923D005ABD66 /* RSSTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,17 @@
 		22E55CA0162591F6005ABD66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22E55CA2162591F6005ABD66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22E55CA4162591F6005ABD66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		22E55CA8162591F7005ABD66 /* topsongs-Info.plist */ = {isa = PBXFileReference; path = "topsongs-Info.plist"; sourceTree = "<group>"; };
+		22E55CA8162591F7005ABD66 /* topsongs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "topsongs-Info.plist"; sourceTree = "<group>"; };
 		22E55CAA162591F7005ABD66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		22E55CAC162591F7005ABD66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		22E55CAE162591F7005ABD66 /* topsongs-Prefix.pch */ = {isa = PBXFileReference; path = "topsongs-Prefix.pch"; sourceTree = "<group>"; };
-		22E55CAF162591F7005ABD66 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		22E55CAE162591F7005ABD66 /* topsongs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "topsongs-Prefix.pch"; sourceTree = "<group>"; };
+		22E55CAF162591F7005ABD66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22E55CB0162591F7005ABD66 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22E55CB2162591F7005ABD66 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		22E55CB2162591F7005ABD66 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		22E55CB3162591F7005ABD66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		22E55CB6162591F7005ABD66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		22E55CBD1625923D005ABD66 /* RSSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSTableViewController.h; path = ../RSSTableViewController.h; sourceTree = "<group>"; };
+		22E55CBE1625923D005ABD66 /* RSSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSTableViewController.m; path = ../RSSTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 			children = (
 				22E55CAF162591F7005ABD66 /* AppDelegate.h */,
 				22E55CB0162591F7005ABD66 /* AppDelegate.m */,
+				22E55CBD1625923D005ABD66 /* RSSTableViewController.h */,
+				22E55CBE1625923D005ABD66 /* RSSTableViewController.m */,
 				22E55CB2162591F7005ABD66 /* ViewController.h */,
 				22E55CB3162591F7005ABD66 /* ViewController.m */,
 				22E55CB5162591F7005ABD66 /* ViewController.xib */,
@@ -163,6 +168,7 @@
 				22E55CAD162591F7005ABD66 /* main.m in Sources */,
 				22E55CB1162591F7005ABD66 /* AppDelegate.m in Sources */,
 				22E55CB4162591F7005ABD66 /* ViewController.m in Sources */,
+				22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

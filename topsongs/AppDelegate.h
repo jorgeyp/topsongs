@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  topsongs
 //
-//  Created by Jorge Puente Peinador on 10/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Jorge Yagüe París on 10/10/12.
+//  Copyright (c) Jorge Yagüe París. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

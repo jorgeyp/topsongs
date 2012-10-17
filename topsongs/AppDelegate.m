@@ -2,13 +2,14 @@
 //  AppDelegate.m
 //  topsongs
 //
-//  Created by Jorge Puente Peinador on 10/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Jorge Yagüe París on 10/10/12.
+//  Copyright (c) Jorge Yagüe París. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "RSSTableViewController.h"
 
 @implementation AppDelegate
 
@@ -25,9 +26,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    RSSTableViewController *tvc = [[RSSTableViewController alloc] 
+                                   initWithStyle:UITableViewStylePlain]; 
+    [self.window addSubview:[tvc view]];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
