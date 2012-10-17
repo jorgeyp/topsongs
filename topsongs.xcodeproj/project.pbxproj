@@ -16,6 +16,8 @@
 		22E55CB4162591F7005ABD66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CB3162591F7005ABD66 /* ViewController.m */; };
 		22E55CB7162591F7005ABD66 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E55CB5162591F7005ABD66 /* ViewController.xib */; };
 		22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CBE1625923D005ABD66 /* RSSTableViewController.m */; };
+		CF7F0033162EFF10007E82EB /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F0031162EFF10007E82EB /* SongDetailViewController.m */; };
+		CF7F0034162EFF10007E82EB /* SongDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7F0032162EFF10007E82EB /* SongDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		22E55CB6162591F7005ABD66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		22E55CBD1625923D005ABD66 /* RSSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSTableViewController.h; sourceTree = "<group>"; };
 		22E55CBE1625923D005ABD66 /* RSSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSTableViewController.m; sourceTree = "<group>"; };
+		CF7F0030162EFF10007E82EB /* SongDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetailViewController.h; sourceTree = "<group>"; };
+		CF7F0031162EFF10007E82EB /* SongDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetailViewController.m; sourceTree = "<group>"; };
+		CF7F0032162EFF10007E82EB /* SongDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 				22E55CAF162591F7005ABD66 /* AppDelegate.h */,
 				22E55CB0162591F7005ABD66 /* AppDelegate.m */,
 				22E55CBD1625923D005ABD66 /* RSSTableViewController.h */,
+				CF7F0030162EFF10007E82EB /* SongDetailViewController.h */,
+				CF7F0031162EFF10007E82EB /* SongDetailViewController.m */,
+				CF7F0032162EFF10007E82EB /* SongDetailViewController.xib */,
 				22E55CBE1625923D005ABD66 /* RSSTableViewController.m */,
 				22E55CB2162591F7005ABD66 /* ViewController.h */,
 				22E55CB3162591F7005ABD66 /* ViewController.m */,
@@ -155,6 +163,7 @@
 			files = (
 				22E55CAB162591F7005ABD66 /* InfoPlist.strings in Resources */,
 				22E55CB7162591F7005ABD66 /* ViewController.xib in Resources */,
+				CF7F0034162EFF10007E82EB /* SongDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +178,7 @@
 				22E55CB1162591F7005ABD66 /* AppDelegate.m in Sources */,
 				22E55CB4162591F7005ABD66 /* ViewController.m in Sources */,
 				22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */,
+				CF7F0033162EFF10007E82EB /* SongDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

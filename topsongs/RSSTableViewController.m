@@ -23,7 +23,10 @@
 { 
     if (self = [super initWithStyle:style]){ 
         canciones = [[NSMutableArray alloc] init]; 
-    } 
+    }
+    
+    [[self navigationItem] setTitle:@"Top canciones en iTunes"];
+    
     return self; 
 } 
 
