@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SongDetailViewController;
 @interface RSSTableViewController : UITableViewController <NSXMLParserDelegate> 
-{ 
+{
+    SongDetailViewController *detailViewController;
     BOOL waitingForEntryTitle;
     NSMutableArray *canciones;
     NSMutableData *xmlData; 

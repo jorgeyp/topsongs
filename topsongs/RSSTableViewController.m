@@ -7,6 +7,7 @@
 //
 
 #import "RSSTableViewController.h"
+#import "SongDetailViewController.h"
 
 @implementation RSSTableViewController
 
@@ -23,7 +24,10 @@
 { 
     if (self = [super initWithStyle:style]){ 
         canciones = [[NSMutableArray alloc] init]; 
-    } 
+    }
+    
+    [[self navigationItem] setTitle:@"Top canciones en iTunes"];
+    
     return self; 
 } 
 
@@ -33,6 +37,16 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Hace falta crear una instancia de ItemDetailViewController
+    if (!detailViewController){
+        detailViewController = [[SongDetailViewController alloc] init];
+    }
+    //Hacemos push a la pila del UINavigationController
+    [[self navigationController] pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - View lifecycle
