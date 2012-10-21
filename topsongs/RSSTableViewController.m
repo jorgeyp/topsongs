@@ -25,7 +25,8 @@
 -(id)initWithStyle:(UITableViewStyle)style 
 { 
     if (self = [super initWithStyle:style]){ 
-        titulosCanciones = [[NSMutableArray alloc] init]; 
+        titulosCanciones = [[NSMutableArray alloc] init];
+        canciones = [[NSMutableArray alloc] init];
     }
     
     [[self navigationItem] setTitle:@"Top canciones en iTunes"];
@@ -48,6 +49,8 @@
         detailViewController = [[SongDetailViewController alloc] init];
         
     }
+    
+    [detailViewController setCancionActual:[canciones objectAtIndex:[indexPath row]]];
     //Hacemos push a la pila del UINavigationController
     [[self navigationController] pushViewController:detailViewController animated:YES];
 }
@@ -91,7 +94,8 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
 (NSInteger)section 
 { 
-    return [titulosCanciones count]; 
+   // return [titulosCanciones count];
+    return [canciones count];
 } 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,15 +106,22 @@
         cell=[[[UITableViewCell alloc] 
                initWithStyle:UITableViewCellStyleDefault
                reuseIdentifier:@"UITableViewCell"] autorelease]; 
-    } 
-    [[cell textLabel] setText:[titulosCanciones objectAtIndex:[indexPath row]]]; 
+    }
+    
+    //Cancion cancionTitulo = [titulosCanciones objectAtIndex:[indexPath row]];
+    
+    [[cell textLabel] setText:[titulosCanciones objectAtIndex:[indexPath row]]];
+    //[[cell textLabel] setText:[canciones objectAtIndex:[indexPath row]]];
+    
+    
     return cell; 
 }
 
 -(void)cargaCanciones
 { 
     //Por si utilizamos esta clase en varias vistas borramos el listado de canciones 
-    [titulosCanciones removeAllObjects]; 
+    [titulosCanciones removeAllObjects];
+    [canciones removeAllObjects];
     [[self tableView] reloadData]; 
     //Construimos la URL 
     NSURL *url = [NSURL URLWithString:@"http://ax.itunes.apple.com/" 
@@ -208,6 +219,7 @@
     if ([elementName isEqual:@"entry"]){ 
         NSLog(@"Finalizada una entrada de una canción"); 
         waitingForEntryTitle = NO;
+        [canciones addObject:cancionActual];
         [cancionActual release];
         cancionActual = nil;
     }
