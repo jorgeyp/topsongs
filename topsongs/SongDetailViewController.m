@@ -7,12 +7,14 @@
 //
 
 #import "SongDetailViewController.h"
+#import "Cancion.h"
 
 @interface SongDetailViewController ()
 
 @end
 
 @implementation SongDetailViewController
+@synthesize cancionActual;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +29,12 @@
 {
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [labelTitle setText:cancionActual.titulo];
+    
 }
 
 - (void)viewDidUnload

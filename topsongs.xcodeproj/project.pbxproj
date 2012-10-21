@@ -18,6 +18,7 @@
 		22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E55CBE1625923D005ABD66 /* RSSTableViewController.m */; };
 		CF7F0033162EFF10007E82EB /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F0031162EFF10007E82EB /* SongDetailViewController.m */; };
 		CF7F0034162EFF10007E82EB /* SongDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7F0032162EFF10007E82EB /* SongDetailViewController.xib */; };
+		CFEC70771634504B005955D9 /* Cancion.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEC70761634504B005955D9 /* Cancion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		CF7F0030162EFF10007E82EB /* SongDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetailViewController.h; sourceTree = "<group>"; };
 		CF7F0031162EFF10007E82EB /* SongDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetailViewController.m; sourceTree = "<group>"; };
 		CF7F0032162EFF10007E82EB /* SongDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongDetailViewController.xib; sourceTree = "<group>"; };
+		CFEC70751634504B005955D9 /* Cancion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cancion.h; sourceTree = "<group>"; };
+		CFEC70761634504B005955D9 /* Cancion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cancion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				22E55CB3162591F7005ABD66 /* ViewController.m */,
 				22E55CB5162591F7005ABD66 /* ViewController.xib */,
 				22E55CA7162591F7005ABD66 /* Supporting Files */,
+				CFEC70751634504B005955D9 /* Cancion.h */,
+				CFEC70761634504B005955D9 /* Cancion.m */,
 			);
 			path = topsongs;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				22E55CB4162591F7005ABD66 /* ViewController.m in Sources */,
 				22E55CBF1625923D005ABD66 /* RSSTableViewController.m in Sources */,
 				CF7F0033162EFF10007E82EB /* SongDetailViewController.m in Sources */,
+				CFEC70771634504B005955D9 /* Cancion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

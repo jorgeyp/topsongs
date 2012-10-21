@@ -8,8 +8,10 @@
 
 #import "RSSTableViewController.h"
 #import "SongDetailViewController.h"
+#import "Cancion.h"
 
 @implementation RSSTableViewController
+@synthesize cancionActual;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,7 +25,7 @@
 -(id)initWithStyle:(UITableViewStyle)style 
 { 
     if (self = [super initWithStyle:style]){ 
-        canciones = [[NSMutableArray alloc] init]; 
+        titulosCanciones = [[NSMutableArray alloc] init]; 
     }
     
     [[self navigationItem] setTitle:@"Top canciones en iTunes"];
@@ -44,6 +46,7 @@
     //Hace falta crear una instancia de ItemDetailViewController
     if (!detailViewController){
         detailViewController = [[SongDetailViewController alloc] init];
+        
     }
     //Hacemos push a la pila del UINavigationController
     [[self navigationController] pushViewController:detailViewController animated:YES];
@@ -88,7 +91,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
 (NSInteger)section 
 { 
-    return [canciones count]; 
+    return [titulosCanciones count]; 
 } 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,14 +103,14 @@
                initWithStyle:UITableViewCellStyleDefault
                reuseIdentifier:@"UITableViewCell"] autorelease]; 
     } 
-    [[cell textLabel] setText:[canciones objectAtIndex:[indexPath row]]]; 
+    [[cell textLabel] setText:[titulosCanciones objectAtIndex:[indexPath row]]]; 
     return cell; 
 }
 
 -(void)cargaCanciones
 { 
     //Por si utilizamos esta clase en varias vistas borramos el listado de canciones 
-    [canciones removeAllObjects]; 
+    [titulosCanciones removeAllObjects]; 
     [[self tableView] reloadData]; 
     //Construimos la URL 
     NSURL *url = [NSURL URLWithString:@"http://ax.itunes.apple.com/" 
@@ -137,7 +140,11 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{ 
+{
+    NSString *xmlCheck = [[[NSString alloc] initWithData:xmlData
+                                                encoding:NSUTF8StringEncoding] autorelease];
+    NSLog(@"xml= %@", xmlCheck);
+    
     //Creamos el parser
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData]; 
     //Le ponemos un delegado 
@@ -166,33 +173,48 @@
 (NSDictionary *)attributeDict
 { 
     if ([elementName isEqual:@"entry"]){ 
-        NSLog(@"Encontrada Entrada de canción!"); 
-        waitingForEntryTitle = YES; 
+        waitingForEntryTitle = YES;
+        cancionActual = [[Cancion alloc] init];
     }
     if ([elementName isEqual:@"title"] && waitingForEntryTitle){ 
-        NSLog(@"Encontrado titulo!"); 
-        titulo = [[NSMutableString alloc] init]; 
-    } 
+        titulo = [[NSMutableString alloc] init];
+        cancionActual.titulo = titulo;
+    }
+    if ([elementName isEqual:@"im:artist"]){
+        NSLog(@"Encontrado artista!");
+        artista = [[NSMutableString alloc] init];
+    }
 } 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string 
 { 
-    [titulo appendString:string]; 
+    [titulo appendString:string];
+    [artista appendString:string];
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 { 
-    if ([elementName isEqualToString:@"title"] && waitingForEntryTitle){ 
-        NSLog(@"Finalizado el título: %@", titulo); 
-        [canciones addObject:titulo]; 
+    if ([elementName isEqualToString:@"title"] && waitingForEntryTitle){
+        [titulosCanciones addObject:titulo]; 
         //Liberamos y ponemos a nil
         [titulo release]; 
         titulo = nil; 
-    } 
+    }
+    if ([elementName isEqualToString:@"artista"]){
+        NSLog(@"Finalizado el artista: %@", artista);
+        [artista release];
+        artista = nil;
+    }
     if ([elementName isEqual:@"entry"]){ 
         NSLog(@"Finalizada una entrada de una canción"); 
-        waitingForEntryTitle = NO; 
+        waitingForEntryTitle = NO;
+        [cancionActual release];
+        cancionActual = nil;
     }
+}
+
+- (void)dealloc {
+    [super dealloc];
 }
 
 @end

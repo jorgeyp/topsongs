@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@class SongDetailViewController;
+@class SongDetailViewController, Cancion;
 @interface RSSTableViewController : UITableViewController <NSXMLParserDelegate> 
 {
     SongDetailViewController *detailViewController;
     BOOL waitingForEntryTitle;
-    NSMutableArray *canciones;
+    NSMutableArray *titulosCanciones;
     NSMutableData *xmlData; 
     NSURLConnection *conexion;
     NSMutableString *titulo;
+    NSMutableString *artista;
+    
+    Cancion *cancionActual;
 }
+
+@property (nonatomic, retain) Cancion *cancionActual;
 
 -(void)cargaCanciones;
 
