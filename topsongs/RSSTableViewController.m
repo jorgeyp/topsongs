@@ -25,7 +25,6 @@
 -(id)initWithStyle:(UITableViewStyle)style 
 { 
     if (self = [super initWithStyle:style]){ 
-        titulosCanciones = [[NSMutableArray alloc] init];
         canciones = [[NSMutableArray alloc] init];
     }
     
@@ -94,7 +93,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
 (NSInteger)section 
 { 
-   // return [titulosCanciones count];
     return [canciones count];
 } 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -108,11 +106,8 @@
                reuseIdentifier:@"UITableViewCell"] autorelease]; 
     }
     
-    //Cancion cancionTitulo = [titulosCanciones objectAtIndex:[indexPath row]];
     
-    [[cell textLabel] setText:[titulosCanciones objectAtIndex:[indexPath row]]];
-    //[[cell textLabel] setText:[canciones objectAtIndex:[indexPath row]]];
-    
+    [[cell textLabel] setText:[[canciones objectAtIndex:[indexPath row]] titulo]];
     
     return cell; 
 }
@@ -120,7 +115,6 @@
 -(void)cargaCanciones
 { 
     //Por si utilizamos esta clase en varias vistas borramos el listado de canciones 
-    [titulosCanciones removeAllObjects];
     [canciones removeAllObjects];
     [[self tableView] reloadData]; 
     //Construimos la URL 
@@ -195,8 +189,8 @@
         cancionActual = [[Cancion alloc] init];
     }
     if ([elementName isEqual:@"title"] && waitingForEntryTitle){ 
-        titulo = [[NSMutableString alloc] init];
-        cancionActual.titulo = titulo;
+        [self elementoActualAlloc];
+        cancionActual.titulo = elementoActual;
     }
     if ([elementName isEqual:@"im:artist"] && waitingForEntryTitle){
         [self elementoActualAlloc];
@@ -221,7 +215,6 @@
 } 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string 
 { 
-    [titulo appendString:string];
     [elementoActual appendString:string];
     
 }
@@ -236,10 +229,7 @@
  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 { 
     if ([elementName isEqualToString:@"title"] && waitingForEntryTitle){
-        [titulosCanciones addObject:titulo]; 
-        //Liberamos y ponemos a nil
-        [titulo release]; 
-        titulo = nil; 
+        [self elementoActualDealloc];
     }
     if ([elementName isEqualToString:@"im:artist"] && waitingForEntryTitle){
         [self elementoActualDealloc];

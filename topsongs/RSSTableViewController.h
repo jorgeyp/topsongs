@@ -13,7 +13,6 @@
 {
     SongDetailViewController *detailViewController;
     BOOL waitingForEntryTitle;
-    NSMutableArray *titulosCanciones;
     NSMutableArray *canciones;
     NSMutableData *xmlData; 
     NSURLConnection *conexion;
