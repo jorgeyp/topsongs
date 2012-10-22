@@ -216,7 +216,7 @@
     }
     if ([elementName isEqual:@"link"] && waitingForEntryTitle){
         [self elementoActualAlloc];
-        cancionActual.enlace = elementoActual;
+        cancionActual.enlace = [attributeDict objectForKey:@"href"];
     }
 } 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string 

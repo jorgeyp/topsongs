@@ -18,11 +18,6 @@
     NSMutableData *xmlData; 
     NSURLConnection *conexion;
     NSMutableString *titulo;
-    NSMutableString *artista;
-    NSMutableString *duracion;
-    NSMutableString *precio;
-    NSMutableString *copyright;
-    NSMutableString *enlace;
     NSMutableString *elementoActual;
     
     Cancion *cancionActual;
