@@ -53,8 +53,8 @@
     //Hacemos push a la pila del UINavigationController
     [[self navigationController] pushViewController:detailViewController animated:YES];
     
+    // Añade la marca de canciones vistas
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
@@ -108,10 +108,9 @@
         cell=[[[UITableViewCell alloc] 
                initWithStyle:UITableViewCellStyleDefault
                reuseIdentifier:@"UITableViewCell"] autorelease];
-        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
-    
+    // Pone el título de la canción correspondiente en la celda de la tabla
     [[cell textLabel] setText:[[canciones objectAtIndex:[indexPath row]] titulo]];
     
     return cell; 
