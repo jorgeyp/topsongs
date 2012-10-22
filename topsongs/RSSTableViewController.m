@@ -52,6 +52,7 @@
     [detailViewController setCancionActual:[canciones objectAtIndex:[indexPath row]]];
     //Hacemos push a la pila del UINavigationController
     [[self navigationController] pushViewController:detailViewController animated:YES];
+    
 }
 
 #pragma mark - View lifecycle
@@ -228,23 +229,15 @@
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 { 
-    if ([elementName isEqualToString:@"title"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
-    }
-    if ([elementName isEqualToString:@"im:artist"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
-    }
-    if ([elementName isEqualToString:@"im:duration"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
-    }
-    if ([elementName isEqualToString:@"im:price"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
-    }
-    if ([elementName isEqualToString:@"rights"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
-    }
-    if ([elementName isEqualToString:@"link"] && waitingForEntryTitle){
-        [self elementoActualDealloc];
+    if ((
+         [elementName isEqualToString:@"title"]         ||
+         [elementName isEqualToString:@"im:artist"]     ||
+         [elementName isEqualToString:@"im:duration"]   ||
+         [elementName isEqualToString:@"im:price"]      ||
+         [elementName isEqualToString:@"rights"]        ||
+         [elementName isEqualToString:@"link"]
+         ) && waitingForEntryTitle) {
+            [self elementoActualDealloc];
     }
     if ([elementName isEqual:@"entry"]){ 
         waitingForEntryTitle = NO;
