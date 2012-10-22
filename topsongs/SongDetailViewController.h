@@ -18,9 +18,12 @@
     IBOutlet UILabel *labelPrice;
     IBOutlet UILabel *labelCopyright;
     IBOutlet UILabel *labelLink;
+    IBOutlet UIButton *buttonLink;
     Cancion *cancionActual;
 }
 
 @property (nonatomic, assign) Cancion *cancionActual;
+
+-(IBAction)pushedButtonLink:(id)sender;
 
 @end

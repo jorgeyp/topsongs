@@ -25,6 +25,11 @@
     return self;
 }
 
+-(IBAction)pushedButtonLink:(id)sender
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,6 +76,7 @@
     [labelLink release];
     [labelPrice release];
     [labelTitle release];
+    [buttonLink release];
     
     [super dealloc];
 }
