@@ -53,6 +53,9 @@
     //Hacemos push a la pila del UINavigationController
     [[self navigationController] pushViewController:detailViewController animated:YES];
     
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 #pragma mark - View lifecycle
@@ -104,7 +107,8 @@
     if (cell==nil){ 
         cell=[[[UITableViewCell alloc] 
                initWithStyle:UITableViewCellStyleDefault
-               reuseIdentifier:@"UITableViewCell"] autorelease]; 
+               reuseIdentifier:@"UITableViewCell"] autorelease];
+        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
     
