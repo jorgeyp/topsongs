@@ -8,6 +8,7 @@
 
 #import "SongDetailViewController.h"
 #import "Cancion.h"
+#import "WebViewController.h"
 
 @interface SongDetailViewController ()
 
@@ -27,7 +28,11 @@
 
 -(IBAction)pushedButtonLink:(id)sender
 {
-    
+    NSURL *url = [NSURL URLWithString:cancionActual.enlace];
+    WebViewController *webViewController = [[WebViewController alloc] initWithURL:url andTitle:cancionActual.titulo];
+    //Mostramos el WebViewController de forma modal
+    [self presentModalViewController:webViewController animated:YES];
+    [webViewController release];
 }
 
 - (void)viewDidLoad
