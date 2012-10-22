@@ -179,6 +179,13 @@
     [actionSheet autorelease];
 }
 
+
+
+- (void)elementoActualAlloc
+{
+    elementoActual = [[NSMutableString alloc] init];
+}
+
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:
 (NSDictionary *)attributeDict
@@ -191,15 +198,38 @@
         titulo = [[NSMutableString alloc] init];
         cancionActual.titulo = titulo;
     }
-    if ([elementName isEqual:@"im:artist"]){
-        NSLog(@"Encontrado artista!");
-        artista = [[NSMutableString alloc] init];
+    if ([elementName isEqual:@"im:artist"] && waitingForEntryTitle){
+        [self elementoActualAlloc];
+        cancionActual.artista = elementoActual;
+    }
+    if ([elementName isEqual:@"im:duration"] && waitingForEntryTitle){
+        [self elementoActualAlloc];
+        cancionActual.duracion = elementoActual;
+    }
+    if ([elementName isEqual:@"im:price"] && waitingForEntryTitle){
+        [self elementoActualAlloc];
+        cancionActual.precio = elementoActual;
+    }
+    if ([elementName isEqual:@"rights"] && waitingForEntryTitle){
+        [self elementoActualAlloc];
+        cancionActual.copyright = elementoActual;
+    }
+    if ([elementName isEqual:@"link"] && waitingForEntryTitle){
+        [self elementoActualAlloc];
+        cancionActual.enlace = elementoActual;
     }
 } 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string 
 { 
     [titulo appendString:string];
-    [artista appendString:string];
+    [elementoActual appendString:string];
+    
+}
+
+- (void)elementoActualDealloc
+{
+    [elementoActual release];
+    elementoActual = nil;
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
@@ -211,13 +241,22 @@
         [titulo release]; 
         titulo = nil; 
     }
-    if ([elementName isEqualToString:@"artista"]){
-        NSLog(@"Finalizado el artista: %@", artista);
-        [artista release];
-        artista = nil;
+    if ([elementName isEqualToString:@"im:artist"] && waitingForEntryTitle){
+        [self elementoActualDealloc];
+    }
+    if ([elementName isEqualToString:@"im:duration"] && waitingForEntryTitle){
+        [self elementoActualDealloc];
+    }
+    if ([elementName isEqualToString:@"im:price"] && waitingForEntryTitle){
+        [self elementoActualDealloc];
+    }
+    if ([elementName isEqualToString:@"rights"] && waitingForEntryTitle){
+        [self elementoActualDealloc];
+    }
+    if ([elementName isEqualToString:@"link"] && waitingForEntryTitle){
+        [self elementoActualDealloc];
     }
     if ([elementName isEqual:@"entry"]){ 
-        NSLog(@"Finalizada una entrada de una canción"); 
         waitingForEntryTitle = NO;
         [canciones addObject:cancionActual];
         [cancionActual release];

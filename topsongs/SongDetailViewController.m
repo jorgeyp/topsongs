@@ -34,7 +34,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [labelTitle setText:cancionActual.titulo];
-    
+    [labelArtist setText:cancionActual.artista];
+    [labelDuration setText:cancionActual.duracion];
+    [labelPrice setText:cancionActual.precio];
+    [labelCopyright setText:cancionActual.copyright];
+    [labelLink setText:cancionActual.enlace];
 }
 
 - (void)viewDidUnload
