@@ -8,6 +8,7 @@
 
 #import "SongDetailViewController.h"
 #import "Cancion.h"
+#import "WebViewController.h"
 
 @interface SongDetailViewController ()
 
@@ -23,6 +24,15 @@
         // Custom initialization
     }
     return self;
+}
+
+-(IBAction)pushedButtonLink:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:cancionActual.enlace];
+    WebViewController *webViewController = [[WebViewController alloc] initWithURL:url andTitle:cancionActual.titulo];
+    //Mostramos el WebViewController de forma modal
+    [self presentModalViewController:webViewController animated:YES];
+    [webViewController release];
 }
 
 - (void)viewDidLoad
@@ -71,6 +81,7 @@
     [labelLink release];
     [labelPrice release];
     [labelTitle release];
+    [buttonLink release];
     
     [super dealloc];
 }

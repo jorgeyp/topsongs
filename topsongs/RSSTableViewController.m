@@ -184,6 +184,15 @@
     elementoActual = [[NSMutableString alloc] init];
 }
 
+-(NSString *)removeUrlParameter:(NSString*)urlString {
+    // Find that last component in the string from the end to make sure to get the last one
+    
+    NSArray *fragmentos = [[NSArray alloc]init];
+    fragmentos = [urlString componentsSeparatedByString:@"?"];
+    
+    return [fragmentos objectAtIndex:0];
+}
+
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:
 (NSDictionary *)attributeDict
@@ -214,7 +223,8 @@
     }
     if ([elementName isEqual:@"link"] && waitingForEntryTitle){
         [self elementoActualAlloc];
-        cancionActual.enlace = [attributeDict objectForKey:@"href"];
+        cancionActual.enlace = [self removeUrlParameter:[attributeDict objectForKey:@"href"]];
+      //  cancionActual.enlace = [attributeDict objectForKey:@"href"];
     }
 } 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string 
