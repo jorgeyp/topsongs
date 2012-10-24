@@ -43,7 +43,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Hace falta crear una instancia de ItemDetailViewController
     if (!detailViewController){
         detailViewController = [[SongDetailViewController alloc] init];
         

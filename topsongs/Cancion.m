@@ -10,6 +10,16 @@
 
 @implementation Cancion
 
-@synthesize titulo, artista, duracion, precio, copyright, enlace;
+@synthesize titulo, artista, duracion, precio, copyright, enlace, imageKey;
+
+-(void)dealloc{
+    [titulo release];
+    [artista release];
+    [duracion release];
+    [precio release];
+    [copyright release];
+    [enlace release];
+    [imageKey release];
+}
 
 @end

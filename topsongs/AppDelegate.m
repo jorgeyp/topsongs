@@ -32,6 +32,14 @@
     [self.window addSubview:[navController view]];
     [self.window makeKeyAndVisible];
     
+    Reachability *reach = [[Reachability reachabilityForInternetConnection]retain];
+    
+    if ([reach currentReachabilityStatus] == NotReachable) {
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:@"Red no disponible" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+
     return YES;
 }
 

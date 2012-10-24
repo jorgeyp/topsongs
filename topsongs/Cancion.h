@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Cancion : NSObject
+@interface Cancion : NSObject {
+    NSString *imageKey;
+}
 
 @property (nonatomic, retain) NSString *titulo;
 @property (nonatomic, retain) NSString *artista;
@@ -16,5 +18,6 @@
 @property (nonatomic, retain) NSString *precio;
 @property (nonatomic, retain) NSString *copyright;
 @property (nonatomic, retain) NSString *enlace;
+@property (nonatomic, copy) NSString *imageKey;
 
 @end

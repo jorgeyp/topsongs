@@ -10,7 +10,7 @@
 
 @class Cancion;
 
-@interface SongDetailViewController : UIViewController
+@interface SongDetailViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     IBOutlet UILabel *labelTitle;
     IBOutlet UILabel *labelArtist;
@@ -19,6 +19,7 @@
     IBOutlet UILabel *labelCopyright;
     IBOutlet UILabel *labelLink;
     IBOutlet UIButton *buttonLink;
+    IBOutlet UIImageView *imageView;
     Cancion *cancionActual;
 }
 
